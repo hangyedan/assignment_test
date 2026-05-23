@@ -36,7 +36,7 @@ export default function useQuery<T>(
       } catch (error) {
         setResult({
           status: "error",
-          error: error as Error,
+          error: error instanceof Error ? error : new Error(String(error)),
         });
       }
     };
