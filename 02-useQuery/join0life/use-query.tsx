@@ -9,17 +9,17 @@ import { useEffect, useState } from "react";
 type FnType<T> = () => Promise<T>;
 type DepsType = import("react").DependencyList;
 
-type ResultType = {
+type ResultType<T> = {
   status: "loading" | "success" | "error";
-  data?: number | null;
+  data?: T;
   error?: Error | null;
 };
 
 export default function useQuery<T>(
   fn: FnType<T>,
   deps: DepsType = [],
-): ResultType {
-  const [result, setResult] = useState<ResultType>({
+): ResultType<T> {
+  const [result, setResult] = useState<ResultType<T>>({
     status: "loading",
   });
 
@@ -29,7 +29,7 @@ export default function useQuery<T>(
         const data = await fn();
         setResult({
           status: "success",
-          data: null,
+          data: data,
         });
 
         return data;
