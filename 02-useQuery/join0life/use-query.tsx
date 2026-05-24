@@ -4,15 +4,15 @@
  * @param {import("react").DependencyList} deps
  */
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type DependencyList } from "react";
 
 type FnType<T> = () => Promise<T>;
-type DepsType = import("react").DependencyList;
+type DepsType = DependencyList;
 
 type ResultType<T> = {
   status: "loading" | "success" | "error";
   data?: T;
-  error?: Error | null;
+  error?: Error;
 };
 
 export default function useQuery<T>(
