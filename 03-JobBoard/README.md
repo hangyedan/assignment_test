@@ -1,4 +1,4 @@
-# No 2. Job Board
+# No 3. Job Board
 
 ## 문제 링크
 
