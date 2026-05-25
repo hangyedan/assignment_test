@@ -10,13 +10,13 @@ type useQueryProps = {
 export default function useQuery({ fn, deps = [] }: useQueryProps) {
   const [status, setStatus] = useState('loading');
   const [data, setData] = useState(null);
-  const [error, setError] = useState({});
+  const [error, setError] = useState<Error>();
 
   useEffect(() => {
     const fetchData = async () => {
       setStatus('loading');
       setData(null);
-      setError({});
+      setError(undefined);
       try {
         const result = await fn();
 
@@ -24,7 +24,8 @@ export default function useQuery({ fn, deps = [] }: useQueryProps) {
         setStatus('success');
       } catch {
         setStatus('error');
-        setError(Error);
+        const error = new Error('error');
+        setError(error);
       }
     };
 
