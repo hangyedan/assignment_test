@@ -8,14 +8,15 @@
 
 ## 문제 설명
 
-###원본
+### 원본
+
 You're given some existing HTML for a Todo List app. Add the following functionality to the app:
 
 1. Add new tasks on clicking the "Submit" button.
    - The `<input>` field should be cleared upon successful addition.
 2. Remove tasks from the Todo List upon clicking the "Delete" button.
 
-####Notes
+### Notes
 
 - The focus of this question is on functionality, not styling. There's no need to write any custom CSS.
 - You may modify the markup (e.g. adding `id`s, data attributes, replacing some tags, etc.), but the result should remain the same visually.
@@ -29,7 +30,7 @@ Todo List 앱용 기존 HTML이 일부 제공됩니다. 앱에 다음 기능을 
    - `<input>` 추가가 성공하면 해당 필드가 정리되어야 합니다.
 2. "삭제" 버튼을 클릭하면 할 일 목록에서 작업을 제거할 수 있습니다.
 
-####Notes
+### Notes
 
 - 이 질문의 초점은 스타일링이 아니라 기능성에 있습니다. 커스텀 CSS를 만들 필요는 없습니다.
 - 마크업을 수정할 수 있습니다(예: id, 데이터 속성 추가, 태그 교체 등), 결과는 시각적으로 동일해야 합니다
