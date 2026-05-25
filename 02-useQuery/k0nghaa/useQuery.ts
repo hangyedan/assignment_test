@@ -1,36 +1,39 @@
 import { useEffect, useState, type DependencyList } from 'react';
 
 // 소요시간: 2시간(1차) + 40분(2차)
+// 수정: 30분
 
-type useQueryProps = {
-  fn: () => Promise<null>;
-  deps: DependencyList;
-};
+type AsyncState<T> =
+  | { status: 'loading' }
+  | { status: 'success'; data: T }
+  | { status: 'error'; error: Error };
 
-export default function useQuery({ fn, deps = [] }: useQueryProps) {
-  const [status, setStatus] = useState('loading');
-  const [data, setData] = useState(null);
-  const [error, setError] = useState<Error>();
+export default function useQuery<T>(
+  fn: () => Promise<T>,
+  deps: DependencyList = [],
+): AsyncState<T> {
+  const [state, setState] = useState<AsyncState<T>>({ status: 'loading' });
 
   useEffect(() => {
     const fetchData = async () => {
-      setStatus('loading');
-      setData(null);
-      setError(undefined);
       try {
         const result = await fn();
+        setState({ status: 'success', data: result });
+      } catch (error) {
+        if (error instanceof Error) {
+          setState({ status: 'error', error });
+          return;
+        }
 
-        setData(result);
-        setStatus('success');
-      } catch {
-        setStatus('error');
-        const error = new Error('error');
-        setError(error);
+        setState({
+          status: 'error',
+          error: new Error('알 수 없는 에러가 발생했습니다.'),
+        });
       }
     };
 
     fetchData();
   }, [...deps]);
 
-  return { status, data, error };
+  return state;
 }
