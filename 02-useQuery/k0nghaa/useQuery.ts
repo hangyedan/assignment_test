@@ -1,37 +1,35 @@
 import { useEffect, useState, type DependencyList } from 'react';
 
-// 소요시간: 2시간(1차) + ...
-/**
- * 해결해야할 것
- * 1. useEffect내부 setState
- * 2. data를 어떻게 가져올 수 있을지?
- * 3. deps 미사용
- */
+// 소요시간: 2시간(1차) + 40분(2차)
 
 type useQueryProps = {
-  fn: () => void;
+  fn: () => Promise<null>;
   deps: DependencyList;
 };
 
 export default function useQuery({ fn, deps = [] }: useQueryProps) {
   const [status, setStatus] = useState('loading');
-  const [data, setData] = useState('');
+  const [data, setData] = useState(null);
   const [error, setError] = useState({});
 
   useEffect(() => {
-    fn();
-    try {
-      setStatus('success');
-      setData();
-    } catch {
-      setStatus('error');
-      setError(Error);
-    } finally {
+    const fetchData = async () => {
       setStatus('loading');
-      setData('');
+      setData(null);
       setError({});
-    }
-  }, [fn]);
+      try {
+        const result = await fn();
+
+        setData(result);
+        setStatus('success');
+      } catch {
+        setStatus('error');
+        setError(Error);
+      }
+    };
+
+    fetchData();
+  }, [...deps]);
 
   return { status, data, error };
 }
