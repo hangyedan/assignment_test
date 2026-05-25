@@ -14,15 +14,24 @@ const useQuery = <T>(
   });
 
   useEffect(() => {
+    let flag = false;
     setResponse({ status: "loading" });
     fn()
       .then((res) => {
-        setResponse({ status: "success", data: res });
+        if (!flag) {
+          setResponse({ status: "success", data: res });
+        }
       })
 
       .catch((rej) => {
-        setResponse({ status: "error", error: rej });
+        if (!flag) {
+          setResponse({ status: "error", error: rej });
+        }
       });
+
+    return () => {
+      flag = true;
+    };
   }, deps);
 
   return response;
