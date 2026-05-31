@@ -1,8 +1,19 @@
 import { useEffect, useState } from 'react';
 import { JobDetail } from '../api/Job';
+import './style.css';
+
+type JobItem = {
+  by: string;
+  id: number;
+  score: number;
+  time: number;
+  title: string;
+  type: string;
+  url: string;
+};
 
 export default function JobDetailComponent({ id }) {
-  const [jobItem, setJobItem] = useState(null);
+  const [jobItem, setJobItem] = useState<JobItem | null>(null);
 
   useEffect(() => {
     const fetchJobDetail = async () => {
@@ -40,7 +51,9 @@ export default function JobDetailComponent({ id }) {
   return (
     <section key={id}>
       <h2>
-        <a href={jobItem.url}>{jobItem.title}</a>
+        <a className="subtitle" href={jobItem.url}>
+          {jobItem.title}
+        </a>
       </h2>
       <p>
         By {jobItem.by} • {jobItem.time}
