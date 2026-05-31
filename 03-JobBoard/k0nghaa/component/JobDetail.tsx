@@ -1,8 +1,16 @@
+import { useEffect, useState } from 'react';
 import { JobDetail } from '../api/Job';
 
-export default function JobDetailComponent(id) {
-  const data = JobDetail(id);
-  console.log(data);
+export default function JobDetailComponent({ id }) {
+  const [jobItem, setJobItem] = useState(null);
+
+  useEffect(() => {
+    const fetchJobDetail = async () => {
+      const data = await JobDetail(id);
+      setJobItem(data);
+    };
+    fetchJobDetail();
+  }, [id]);
 
   // const mockup = [
   //   {
@@ -25,18 +33,18 @@ export default function JobDetailComponent(id) {
   //   },
   // ];
 
+  if (!jobItem) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <>
-      {data.map((job) => (
-        <section key={job.id}>
-          <h2>
-            <a href={job.url}>{job.title}</a>
-          </h2>
-          <p>
-            By {job.by} • {job.time}
-          </p>
-        </section>
-      ))}
-    </>
+    <section key={id}>
+      <h2>
+        <a href={jobItem.url}>{jobItem.title}</a>
+      </h2>
+      <p>
+        By {jobItem.by} • {jobItem.time}
+      </p>
+    </section>
   );
 }
