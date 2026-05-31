@@ -6,16 +6,15 @@ import JobDetail from './JobDetail';
 import { JobStories } from '../api/Job';
 
 export default function JobBoard() {
-  const [jobIds, setJobIds] = useState([]);
-  console.log(jobIds);
+  const [jobIds, setJobIds] = useState([35908337, 35904973, 35901234]);
 
-  useEffect(() => {
-    const fetchJobStories = async () => {
-      const data = await JobStories();
-      setJobIds(data);
-    };
-    fetchJobStories();
-  }, []);
+  // useEffect(() => {
+  //   const fetchJobStories = async () => {
+  //     const data = await JobStories();
+  //     setJobIds(data);
+  //   };
+  //   fetchJobStories();
+  // }, []);
 
   const handleLoadMoreButtonClick = async () => {
     console.log('Load more jobs');
