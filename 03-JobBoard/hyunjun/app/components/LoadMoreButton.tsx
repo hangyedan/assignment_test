@@ -17,6 +17,7 @@ const LoadMoreButton = ({ totalCount }: { totalCount: number }) => {
   return (
     <Link
       href={`/?limit=${nextLimit}`}
+      scroll={false}
       className="bg-orange-500 text-white p-2 rounded-lg cursor-pointer hover:bg-amber-600"
     >
       Load more jobs
