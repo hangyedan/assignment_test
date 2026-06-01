@@ -23,6 +23,7 @@ const JobBoard = ({
 }) => {
   const { data } = useGetIds(initialIds);
   const searchParams = useSearchParams();
+
   const limit = Number(searchParams.get("limit")) || 6;
 
   return (

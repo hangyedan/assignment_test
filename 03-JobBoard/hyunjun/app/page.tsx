@@ -20,7 +20,7 @@ export default async function App({
         Hacker News Jobs Board
       </h1>
       <JobBoard initialIds={ids} initialJobs={initialJobs} />
-      <LoadMoreButton />
+      <LoadMoreButton totalCount={ids.length} />
     </div>
   );
 }
