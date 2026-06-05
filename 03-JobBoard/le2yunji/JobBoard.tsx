@@ -29,21 +29,23 @@ export default function JobBoard() {
     loadMore(ids, 0);
   }
 
-  async function loadMore(ids: number[] = jobIds, currentPage: number = page) {
+  async function loadMore(ids: number[], currentPage: number) {
     setLoading(true);
 
     try {
       const start = currentPage * PAGE_SIZE;
       const end = start + PAGE_SIZE;
-
       const pageIds = ids.slice(start, end);
 
       const jobsData = await Promise.all(
         pageIds.map((id) => fetchJobDetail(id)),
       );
-
-      setJobs((prev) => [...prev, ...jobsData]);
-      setPage((prev) => prev + 1);
+      setJobs((prev) => {
+        return [...prev, ...jobsData];
+      });
+      setPage((prev) => {
+        return prev + 1;
+      });
     } finally {
       setLoading(false);
     }
@@ -70,7 +72,12 @@ export default function JobBoard() {
       </ul>
 
       {jobs.length < jobIds.length && (
-        <button disabled={loading} onClick={() => loadMore()}>
+        <button
+          disabled={loading}
+          onClick={() => {
+            loadMore(jobIds, page);
+          }}
+        >
           {loading ? "Loading..." : "Load More"}
         </button>
       )}
