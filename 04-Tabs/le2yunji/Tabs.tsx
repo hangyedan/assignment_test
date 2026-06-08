@@ -1,42 +1,49 @@
-// 버튼과 하단 설명 매핑 - 객체로 관리
-// 상태 - 현재 클릭된 탭
-
 import { useEffect, useState } from "react";
 
+const STORAGE_KEY = "selectedTab";
+const DEFAULT_TAB_ID = "html";
+
+const tabData = [
+  {
+    id: "html",
+    btnLabel: "HTML",
+    content:
+      "The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser.",
+  },
+  {
+    id: "css",
+    btnLabel: "CSS",
+    content:
+      "Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML.",
+  },
+  {
+    id: "javascript",
+    btnLabel: "Javascript",
+    content:
+      "JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.",
+  },
+] as const;
+
+type TabId = (typeof tabData)[number]["id"];
+
 export default function Tabs() {
-  const tabData = [
-    {
-      id: "html",
-      btn: "HTML",
-      content:
-        "The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser.",
-    },
+  const [activeTab, setActiveTab] = useState<TabId>(() => {
+    const savedTab = sessionStorage.getItem(STORAGE_KEY);
 
-    {
-      id: "css",
-      btn: "CSS",
-      content:
-        "Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML.",
-    },
-    {
-      id: "javascript",
-      btn: "Javascript",
-      content:
-        "JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.",
-    },
-  ];
+    const isValidTab = tabData.some((tab) => tab.id === savedTab);
 
-  const [activeTab, setActiveTab] = useState(() => {
-    return localStorage.getItem("selectedTab") || "html";
+    return isValidTab ? (savedTab as TabId) : DEFAULT_TAB_ID;
   });
 
   useEffect(() => {
-    localStorage.setItem("selectedTab", activeTab);
+    sessionStorage.setItem("selectedTab", activeTab);
   }, [activeTab]);
 
-  const clickTab = (id: string) => {
+  const clickTab = (id: TabId) => {
     setActiveTab(id);
   };
+
+  const activeTabData = tabData.find((tab) => tab.id === activeTab);
 
   return (
     <div>
@@ -56,20 +63,12 @@ export default function Tabs() {
                 color: isActive ? "#fff" : "#000",
               }}
             >
-              {tab.btn}
+              {tab.btnLabel}
             </button>
           );
         })}
       </div>
-      <div>
-        {tabData.map((tab) =>
-          tab.id === activeTab ? (
-            <p key={tab.id}>{tab.content}</p>
-          ) : (
-            <p key={tab.id} style={{ display: "none" }}></p>
-          ),
-        )}
-      </div>
+      <div>{activeTabData && <p>{activeTabData.content}</p>}</div>
     </div>
   );
 }
