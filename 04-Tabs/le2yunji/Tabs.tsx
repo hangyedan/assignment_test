@@ -36,7 +36,7 @@ export default function Tabs() {
   });
 
   useEffect(() => {
-    sessionStorage.setItem("selectedTab", activeTab);
+    sessionStorage.setItem(STORAGE_KEY, activeTab);
   }, [activeTab]);
 
   const clickTab = (id: TabId) => {
