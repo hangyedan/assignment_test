@@ -17,9 +17,11 @@ export default function useArray<T>(defaultValue: T[]): UseArrayReturn<T> {
     set((prev) => [...prev, element]);
   };
 
-  // const filter = (
-  //   callback: (value: T, index: number, array: T[]) => boolean,
-  // ) => {};
+  const filter = (
+    callback: (value: T, index: number, array: T[]) => boolean,
+  ) => {
+    set((prev) => prev.filter(callback));
+  };
 
   const update = (index: number, newElement: T) => {
     set((prev) => {
@@ -30,8 +32,8 @@ export default function useArray<T>(defaultValue: T[]): UseArrayReturn<T> {
 
   const remove = (index: number) => {
     set((prev) => {
-      prev.filter((_, i) => i !== index);
-      return [...prev];
+      const newRemovedArray = prev.filter((_, i) => i !== index);
+      return newRemovedArray;
     });
   };
 
