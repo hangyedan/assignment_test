@@ -25,8 +25,9 @@ export default function useArray<T>(defaultValue: T[]): UseArrayReturn<T> {
 
   const update = (index: number, newElement: T) => {
     set((prev) => {
-      prev[index] = newElement;
-      return [...prev];
+      const newArray = [...prev];
+      newArray[index] = newElement;
+      return newArray;
     });
   };
 
