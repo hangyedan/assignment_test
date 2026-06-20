@@ -4,6 +4,8 @@
 > 서로의 코드를 리뷰하며 **"왜 이렇게 설계했는가"를 설명하는 능력**을 기르기 위해 만든 스터디입니다.
 > 스터디원은 모두 프론트엔드 신입 개발자입니다.
 
+<br />
+
 ## 📌 스터디를 시작한 이유
 
 채용 과제 테스트는 정답이 하나가 아닙니다. 같은 요구사항이라도 상태 관리 방식, 컴포넌트 분리 기준, 예외 처리 방식에 따라 결과물의 완성도가 크게 달라집니다. 저희는 이 점에 주목해 다음 두 가지 큰 동기로 스터디를 시작했습니다.
@@ -22,16 +24,48 @@
 
 리뷰에서 나온 논의는 Discussions 탭에 기록하여 누적된 학습 자산으로 관리합니다.
 
+<br />
+
 ## 👥 스터디원
 
-| 이름   | GitHub                                         |
-| ------ | ---------------------------------------------- |
-| 이경하 | [@k0nghaa](https://github.com/k0nghaa)         |
-| 이현준 | [@hyun-june](https://github.com/hyun-june)     |
-| 조인영 | [@join0life](https://github.com/join0life)     |
-| 정상인 | [@SanginJeong](https://github.com/SanginJeong) |
-| 이윤지 | [@le2yunji](https://github.com/le2yunji)       |
-| 최병찬 | [@chan-byeong](https://github.com/chan-byeong) |
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/k0nghaa.png" width="100px;" alt="이경하"/><br />
+      <b>이경하</b><br />
+      <a href="https://github.com/k0nghaa">@k0nghaa</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/hyun-june.png" width="100px;" alt="이현준"/><br />
+      <b>이현준</b><br />
+      <a href="https://github.com/hyun-june">@hyun-june</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/join0life.png" width="100px;" alt="조인영"/><br />
+      <b>조인영</b><br />
+      <a href="https://github.com/join0life">@join0life</a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/SanginJeong.png" width="100px;" alt="정상인"/><br />
+      <b>정상인</b><br />
+      <a href="https://github.com/SanginJeong">@SanginJeong</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/le2yunji.png" width="100px;" alt="이윤지"/><br />
+      <b>이윤지</b><br />
+      <a href="https://github.com/le2yunji">@le2yunji</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/chan-byeong.png" width="100px;" alt="최병찬"/><br />
+      <b>최병찬</b><br />
+      <a href="https://github.com/chan-byeong">@chan-byeong</a>
+    </td>
+  </tr>
+</table>
+
+<br />
 
 ## 🧩 풀어본 문제들
 
@@ -48,10 +82,14 @@
 
 > 각 폴더의 README에서 문제 요구사항을, 폴더 내부에서 스터디원별 구현 코드를 확인할 수 있습니다.
 
+<br />
+
 ## 💡 스터디를 통해 얻은 것
 
 - 매주 라이브 리뷰에서 본인의 설계를 직접 발표하고 질의응답을 진행하며, **코드를 말로 설명하는 연습**을 했습니다.
 - 동일 문제에 대한 6가지의 다른 구현을 비교하며, 가독성·재사용성·성능 측면의 **트레이드오프를 판단하는 기준**을 쌓았습니다.
+
+<br />
 
 ## 🗂 진행 운영 (참고)
 
