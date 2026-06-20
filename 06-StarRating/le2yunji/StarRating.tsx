@@ -6,7 +6,7 @@ export default function StarRating({ maxStars = 5, initialRating = 0 }) {
   const [currentRating, setCurrentRating] = useState<number>(initialRating);
   const [hoveredRating, setHoveredRating] = useState<number | null>(null);
 
-  const displayRating = hoveredRating || currentRating;
+  const displayRating = hoveredRating ?? currentRating;
 
   return (
     <div className="stars" onMouseLeave={() => setHoveredRating(null)}>
