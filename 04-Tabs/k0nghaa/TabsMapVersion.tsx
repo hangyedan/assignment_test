@@ -27,8 +27,10 @@ const sections = new Map<number, { buttonText: string; pText: string }>([
   ],
 ]);
 
-export default function Tabs() {
-  const [activeSection, setActiveSection] = useState(sections.get(1));
+export default function TabsMapVersion() {
+  const firstId = [...sections.keys()][0] ?? 1;
+  const [activeSection, setActiveSection] = useState(firstId);
+  const activeContent = sections.get(activeSection);
 
   return (
     <div>
@@ -36,15 +38,17 @@ export default function Tabs() {
         {[...sections].map(([id, section]) => (
           <button
             key={id}
-            onClick={() => setActiveSection(section)}
-            style={activeSection === section ? { color: 'blue' } : {}}
+            onClick={() => {
+              setActiveSection(id);
+            }}
+            style={activeSection === id ? { color: 'blue' } : {}}
           >
             {section.buttonText}
           </button>
         ))}
       </div>
       <div>
-        <p>{activeSection?.pText}</p>
+        <p>{activeContent?.pText}</p>
       </div>
     </div>
   );
