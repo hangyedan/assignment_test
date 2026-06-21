@@ -1,9 +1,10 @@
 interface StarProps {
   isFilled: boolean;
+  isHovered: boolean;
 }
 
-export default function Star({ isFilled }: StarProps) {
-  return isFilled ? (
+export default function Star({ isFilled, isHovered }: StarProps) {
+  return isFilled || isHovered ? (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="star-icon star-icon-filled"

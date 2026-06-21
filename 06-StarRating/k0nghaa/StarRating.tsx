@@ -4,20 +4,45 @@ import './Star.css';
 
 interface StarRatingProps {
   maxStar: number;
-  filledStar: number;
+  // filledStar: number;
   // newStarRating: () => void;
 }
 
-export default function StarRating() {
-  const [isFilledStar, setIsFilledStar] = useState(true);
+export default function StarRating({ maxStar }: StarRatingProps) {
+  const [clickedStar, setClickedStar] = useState(0);
+  const [isHoveredStar, setIsHoveredStar] = useState<null | number>(null);
 
-  const handleFilledStar = () => {
-    setIsFilledStar((prev) => !prev);
+  const starArray = Array.from({ length: maxStar });
+
+  const handleFilledStar = (index: number) => {
+    setClickedStar(index + 1);
+
+    if (index === 0) setClickedStar(0);
+  };
+
+  const handleMouseEnter = (index: number) => {
+    setIsHoveredStar(index + 1);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHoveredStar(null);
   };
 
   return (
-    <button onClick={handleFilledStar}>
-      <Star isFilled={isFilledStar} />
-    </button>
+    <>
+      {starArray.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => handleFilledStar(index)}
+          onMouseEnter={() => handleMouseEnter(index)}
+          onMouseLeave={handleMouseLeave}
+        >
+          <Star
+            isFilled={index < clickedStar}
+            isHovered={index < isHoveredStar}
+          />
+        </button>
+      ))}
+    </>
   );
 }
