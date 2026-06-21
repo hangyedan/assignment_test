@@ -14,10 +14,14 @@ export default function StarRating({ maxStar }: StarRatingProps) {
 
   const starArray = Array.from({ length: maxStar });
 
-  const handleFilledStar = (index: number) => {
-    setClickedStar(index + 1);
+  const activeRating = isHoveredStar !== null ? isHoveredStar : clickedStar;
 
-    if (index === 0) setClickedStar(0);
+  const handleFilledStar = (index: number) => {
+    if (index === 0 && clickedStar === 1) {
+      setClickedStar(0);
+    } else {
+      setClickedStar(index + 1);
+    }
   };
 
   const handleMouseEnter = (index: number) => {
@@ -37,10 +41,7 @@ export default function StarRating({ maxStar }: StarRatingProps) {
           onMouseEnter={() => handleMouseEnter(index)}
           onMouseLeave={handleMouseLeave}
         >
-          <Star
-            isFilled={index < clickedStar}
-            isHovered={index < isHoveredStar}
-          />
+          <Star isFilled={index < activeRating} />
         </button>
       ))}
     </>
