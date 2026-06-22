@@ -1,0 +1,46 @@
+.star-rating {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.star-rating-legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.star-button {
+  display: inline-flex;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #a1a1aa;
+  cursor: pointer;
+}
+
+.star-icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+.star-button.filled {
+  color: gold;
+}
+
+.star-button.filled .star-icon {
+  fill: currentColor;
+}
+
+.star-button:focus-visible {
+  border-radius: 4px;
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
