@@ -39,10 +39,8 @@
   fill: currentColor;
 }
 
-.star-button.hover {
-  color: lightgray;
-}
-
-.star-button.hover .star-icon {
-  fill: currentColor;
+.star-button:focus-visible {
+  border-radius: 4px;
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }

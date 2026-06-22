@@ -18,25 +18,24 @@ export default function StarRating({
   nowStar,
   changeRating,
 }: StarRatingProps) {
-  const [rating, setRating] = useState(nowStar);
-  const [hoverRating, setHoverRating] = useState(0);
-
-  const handleRatingChange = (nextRating: number) => {
-    setRating(nextRating);
-    changeRating(nextRating);
-  };
+  const [hoverRating, setHoverRating] = useState<number | null>(null);
+  const displayedRating = hoverRating ?? nowStar;
 
   return (
-    <fieldset className="star-rating">
+    <fieldset
+      className="star-rating"
+      onMouseLeave={() => setHoverRating(null)}
+    >
       <legend className="star-rating-legend">별점 선택</legend>
       {Array.from({ length: maxStar }, (_, i) => (
         <button
           key={i}
           type="button"
-          onClick={() => handleRatingChange(i + 1)}
-          className={`star-button${i < rating ? " filled" : ""}${i < hoverRating ? " hover" : ""}`}
+          onClick={() => changeRating(i + 1)}
+          className={`star-button${i < displayedRating ? " filled" : ""}`}
           onMouseEnter={() => setHoverRating(i + 1)}
-          onMouseLeave={() => setHoverRating(0)}
+          aria-label={`${i + 1}점`}
+          aria-pressed={nowStar === i + 1}
         >
           <StarIcon />
         </button>
