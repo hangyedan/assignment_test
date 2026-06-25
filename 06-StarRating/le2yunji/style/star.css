@@ -1,0 +1,19 @@
+.stars {
+  display: flex;
+}
+.star-icon {
+  width: 32px;
+  height: 32px;
+  color: #d1d5db;
+  fill: none;
+}
+.star-icon-filled {
+  color: #facc15;
+  fill: #facc15;
+}
+.star-button {
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
