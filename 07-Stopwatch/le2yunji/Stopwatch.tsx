@@ -73,14 +73,3 @@ export default function Stopwatch() {
     </div>
   );
 }
-
-// 시간을 어떻게 증가시키지 ?
-// 경과 시간 = 현재 시각 - 누른 시간 + 이전에 누적된 시간
-
-// Date.now()는 이런 곳에서 쓰면 돼.
-
-// 이벤트 핸들러 안
-// useEffect 안
-// setInterval / requestAnimationFrame 콜백 안
-
-// 즉, 렌더 중에 직접 계산하지 말고, 현재 시간 값을 state로 저장해서 화면에 보여줘야 해.
