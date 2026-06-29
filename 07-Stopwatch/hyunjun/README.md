@@ -33,3 +33,4 @@
 ## 📸 스크린샷 (선택)
 
 > **UI 관련 과제인 경우 결과 화면 캡처나 GIF를 첨부해 주세요.**
+<img width="261" height="92" alt="Animation" src="https://github.com/user-attachments/assets/ac0c7141-d5f6-4710-b0f5-fdee0917d154" />
