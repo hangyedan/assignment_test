@@ -5,7 +5,7 @@ export const formatTime = (time: number) => {
   const milliseconds = time % 1000;
 
   const getPad = (num: number) => {
-    return String(num).padStart(length, "0");
+    return String(num).padStart(2, "0");
   };
 
   return `${getPad(hours)}:${getPad(minutes)}:${getPad(seconds)}:${getPad(milliseconds)}`;
