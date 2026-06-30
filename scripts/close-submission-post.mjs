@@ -1,6 +1,7 @@
 import { readdirSync } from 'node:fs';
 
 const ROOT = process.cwd();
+const GUILD_ID = process.env.DISCORD_GUILD_ID;
 const CHANNEL_ID = process.env.SUBMISSION_FORUM_CHANNEL_ID;
 const BOT_TOKEN = process.env.DISCORD_BOT_TOKEN;
 
@@ -45,10 +46,15 @@ async function discordFetch(path, options = {}) {
 }
 
 async function findActiveThread(number) {
-  const data = await discordFetch(`/channels/${CHANNEL_ID}/threads/active`);
+  // 서버 전체의 활성 스레드 목록을 가져옴
+  const data = await discordFetch(`/guilds/${GUILD_ID}/threads/active`);
+
+  // 그중 "코드제출" 채널 소속이면서 [진행중] + No.{number} 가 제목에 포함된 것만 필터
   const target = data.threads.find(
     (thread) =>
-      thread.name.includes('[진행중]') && thread.name.includes(`No.${number}`),
+      thread.parent_id === CHANNEL_ID &&
+      thread.name.includes('[진행중]') &&
+      thread.name.includes(`No.${number}`),
   );
 
   if (!target) {

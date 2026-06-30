@@ -10,11 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SUBMISSION_FORUM_CHANNEL_ID: '1502947203805614140'
+      DISCORD_GUILD_ID: '1502923047991115778'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - name: Notify deadline to Discord
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
