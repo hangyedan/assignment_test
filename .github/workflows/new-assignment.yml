@@ -1,0 +1,36 @@
+name: New Assignment
+
+on:
+  workflow_dispatch:
+    inputs:
+      question_url:
+        description: '문제 URL (예: https://www.greatfrontend.com/questions/user-interface/image-carousel)'
+        required: true
+        type: string
+
+jobs:
+  create-assignment:
+    runs-on: ubuntu-latest
+    env:
+      SUBMISSION_FORUM_CHANNEL_ID: '1502947203805614140'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Create new assignment
+        env:
+          QUESTION_URL: ${{ inputs.question_url }}
+          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
+          DISCORD_WEBHOOK_URL_ASSIGNMENT: ${{ secrets.DISCORD_WEBHOOK_URL_ASSIGNMENT }}
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+        run: node scripts/new-assignment.mjs
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: 새 과제 추가"
+          git push
