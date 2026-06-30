@@ -11,6 +11,8 @@ on:
 jobs:
   create-assignment:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     env:
       SUBMISSION_FORUM_CHANNEL_ID: '1502947203805614140'
     steps:
