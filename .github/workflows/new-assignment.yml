@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
     env:
       SUBMISSION_FORUM_CHANNEL_ID: '1502947203805614140'
     steps:
@@ -29,10 +30,19 @@ jobs:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
         run: node scripts/new-assignment.mjs
 
-      - name: Commit and push
+      - name: Create branch, commit and open PR
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          BRANCH="assignment/${{ github.run_id }}"
+          git checkout -b "$BRANCH"
           git add .
           git commit -m "chore: 새 과제 추가"
-          git push
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "chore: 새 과제 추가" \
+            --body "자동 생성된 과제 PR입니다. 과제 기본 제공코드 추가 및 확인 후 머지해주세요." \
+            --base main \
+            --head "$BRANCH"
