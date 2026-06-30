@@ -1,0 +1,19 @@
+name: Deadline Notification
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # 매주 월요일 15:00 KST (UTC 06:00)
+  workflow_dispatch: {} # 수동 실행 버튼
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Notify deadline to Discord
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: node scripts/notify-deadline.mjs
