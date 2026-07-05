@@ -1,3 +1,6 @@
+
+
+
 ## 📝 과제 요약
 
 - **과제명:** ImageCarousel
@@ -29,3 +32,4 @@
 ## 📸 스크린샷 (선택)
 
 > **UI 관련 과제인 경우 결과 화면 캡처나 GIF를 첨부해 주세요.**
+https://github.com/user-attachments/assets/f5488255-29ff-4ef8-ba6e-cce73cf3d25a
