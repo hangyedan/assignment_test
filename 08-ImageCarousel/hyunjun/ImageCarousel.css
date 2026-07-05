@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow-y: hidden;
+}
+.wrapper {
+  max-width: 600px;
+  max-height: 400px;
+  display: flex;
+  aspect-ratio: 3/2;
+  background-color: black;
+  position: relative;
+
+  & button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  & button:first-child {
+    left: -50px;
+  }
+
+  & button:last-child {
+    right: -50px;
+  }
+}
+
+.carousel-img {
+  max-width: 600px;
+  max-height: 400px;
+}
+
+.indicators {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+
+  & button {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: gray;
+    cursor: pointer;
+  }
+  & .active {
+    background-color: black;
+    transform: scale(1.5);
+  }
+}
