@@ -12,8 +12,20 @@
 
 ## 예시
 
- export default function Component() {   const [keyword, setKeyword] = useState('');   const debouncedKeyword = useDebounce(keyword, 1000);
-   return (     <div> <input value={keyword} onChange={(e) => setKeyword(e.target.value)} /> <p>디바운스된 키워드: {debouncedKeyword}</p>     </div>   ); }
+```
+export default function Component() {
+  const [keyword, setKeyword] = useState('');
+  const debouncedKeyword = useDebounce(keyword, 1000);
+
+  return (
+    <div>
+      <input value={keyword} onChange={(e) => setKeyword(e.target.value)} />
+      <p>Debounced keyword: {debouncedKeyword}</p>
+    </div>
+  );
+}
+
+```
 useDebounce를 사용했을 때 관찰할 수 있는 결과는 React의 [useDeferredValue](https://react.dev/reference/react/useDeferredValue)와 매우 유사합니다. 전자는 정해진 시간이 지난 후 업데이트된 값을 반환하는 반면, 후자는 항상 업데이트된 값을 반환하지만 DOM 업데이트에 있어 React의 우선순위 체계를 따릅니다.
 
 ## 인수
@@ -40,4 +52,8 @@ useDebounce를 사용했을 때 관찰할 수 있는 결과는 React의 [useDefe
 
 ## 기본 제공 코드
 
-(사이트 코드 에디터에서 직접 확인해주세요)
+```
+export default function useDebounce<T>(value: T, delay: number) {
+  throw 'Not implemented';
+}
+```
