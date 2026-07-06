@@ -1,7 +1,7 @@
 name: Deadline Notification
 
 on:
-  schedule:
+  schedule: # 스케줄 재등록
     - cron: '0 6 * * 1' # 매주 월요일 15:00 KST (UTC 06:00)
   workflow_dispatch: {} # 수동 실행 버튼
 
