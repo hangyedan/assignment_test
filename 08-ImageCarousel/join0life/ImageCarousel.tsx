@@ -21,7 +21,7 @@ export default function ImageCarousel({
   };
 
   const handlePageClick = (page: number) => {
-    setCurrentIndex(page - 1);
+    setCurrentIndex(page);
   };
 
   const currentImage = images[currentIndex];
@@ -30,11 +30,11 @@ export default function ImageCarousel({
     <section className="image-carousel-container" aria-label="Image carousel">
       {/** 이미지 캐러셀 영역 */}
       <div className="image-carousel">
-        <LeftArrowButton onClick={handleLeftArrowClick} />
+        <ArrowButton onClick={handleLeftArrowClick}>◀</ArrowButton>
         <figure className="carousel-content">
           <img alt={currentImage.alt} src={currentImage.src} width="100%" />
         </figure>
-        <RightArrowButton onClick={handleRightArrowClick} />
+        <ArrowButton onClick={handleRightArrowClick}>▶</ArrowButton>
       </div>
 
       {/** 페이지네이션 영역 */}
@@ -47,10 +47,12 @@ export default function ImageCarousel({
   );
 }
 
-export function LeftArrowButton({
+export function ArrowButton({
   onClick,
+  children,
 }: {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
+  children: React.ReactNode;
 }) {
   return (
     <button
@@ -59,24 +61,7 @@ export function LeftArrowButton({
       onClick={onClick}
       aria-label="Previous image"
     >
-      <span aria-hidden="true">◀</span>
-    </button>
-  );
-}
-
-export function RightArrowButton({
-  onClick,
-}: {
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
-}) {
-  return (
-    <button
-      type="button"
-      className="arrow-button"
-      onClick={onClick}
-      aria-label="Next image"
-    >
-      <span aria-hidden="true">▶</span>
+      <span aria-hidden="true">{children}</span>
     </button>
   );
 }
@@ -96,7 +81,7 @@ export function Pagination({
         <button
           type="button"
           key={index}
-          onClick={() => onClick(index + 1)}
+          onClick={() => onClick(index)}
           aria-current={currentPage === index + 1 ? "page" : undefined}
           aria-label={`Go to image ${index + 1}`}
           style={{ fontWeight: currentPage === index + 1 ? "bold" : "normal" }}
