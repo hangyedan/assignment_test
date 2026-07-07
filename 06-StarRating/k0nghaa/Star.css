@@ -1,0 +1,17 @@
+button {
+  /* 1. 배경 및 테두리 초기화 */
+  background: transparent;
+  border: none;
+
+  /* 2. 안팎 여백 및 크기 초기화 */
+  padding: 0;
+  margin: 0;
+
+  /* 3. 마우스 커서 및 클릭 시 외곽선 제어 */
+  cursor: pointer;
+  outline: none;
+
+  /* 4. 폰트 스타일 상속 (부모 요소의 글꼴을 그대로 따름) */
+  font: inherit;
+  color: inherit;
+}
