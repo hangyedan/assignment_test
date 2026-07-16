@@ -10,7 +10,7 @@ export default function useDebounce<T>(value: T, delay: number) {
     return () => {
       clearTimeout(debounced);
     };
-  }, [value]);
+  }, [value, delay]);
 
   return debouncedValue;
 }
