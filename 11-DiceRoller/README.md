@@ -1,4 +1,7 @@
+> 11번째 과제는 DiceRoller 와 UseMediatedState 중 한 가지를 선택해 풀어주세요.
+
 # No 11. DiceRoller
+
 
 ## 문제 링크
 
@@ -19,6 +22,8 @@
 - 주사위 굴림 결과는 3개씩 한 행으로 표시되어야 합니다.
 
 아래 예시는 주사위 6개를 굴렸을 때 나올 수 있는 결과 중 하나를 보여줍니다.
+<img width="1029" height="874" alt="image" src="https://github.com/user-attachments/assets/a193e817-22e7-42c4-9dfc-845e8c527f6f" />
+
 
 ## 출처
 
@@ -28,4 +33,12 @@
 
 ## 기본 제공 코드
 
-(사이트 코드 에디터에서 직접 확인해주세요)
+```
+import { useState } from 'react';
+
+export default function App() {
+  const [message, setMessage] = useState('Hello World!');
+
+  return <div>{message}</div>;
+}
+```
