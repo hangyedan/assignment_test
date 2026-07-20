@@ -5,8 +5,6 @@ export default function useMediaQuery(query: string): boolean {
     return window.matchMedia(query).matches;
   });
 
-  console.log(window.matchMedia(query));
-
   useEffect(() => {
     const mediaQueryList = window.matchMedia(query);
 
