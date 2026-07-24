@@ -1,17 +1,19 @@
 type DicesProps = {
-  diceCount: number;
+  dices: number[];
 };
 
-export default function Dices({ diceCount }: DicesProps) {
+const RANDOM_DICES = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+
+export default function Dices({ dices }: DicesProps) {
   return (
     <div className="dices">
-      {Array.from({ length: diceCount }, (_, index) => (
-        <Dice key={index} />
+      {dices.map((dice, index) => (
+        <Dice key={index} value={dice} />
       ))}
     </div>
   );
 }
 
-export function Dice() {
-  return <div className="dice"></div>;
+export function Dice({ value }: { value: number }) {
+  return <div className="dice">{RANDOM_DICES[value]}</div>;
 }
