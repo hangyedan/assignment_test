@@ -1,0 +1,56 @@
+.dice {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #222;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+/* 주사위 점 공통 스타일 */
+.dice > div {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #222;
+}
+
+/* 점 위치 */
+.top-left {
+  top: 16px;
+  left: 16px;
+}
+
+.top-right {
+  top: 16px;
+  right: 16px;
+}
+
+.middle-left {
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+}
+
+.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.middle-right {
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+}
+
+.bottom-left {
+  bottom: 16px;
+  left: 16px;
+}
+
+.bottom-right {
+  bottom: 16px;
+  right: 16px;
+}
