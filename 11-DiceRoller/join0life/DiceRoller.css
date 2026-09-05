@@ -1,0 +1,22 @@
+.dice-roller {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dice-controller {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dices {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.dice {
+  font-size: 5rem;
+}
