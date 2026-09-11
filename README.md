@@ -71,14 +71,19 @@
 
 [GreatFrontEnd (Medium)](https://www.greatfrontend.com/questions/javascript-interview-questions?framework=React&difficulty=Medium)에서 출제되는 React/TypeScript 기반 실전형 과제 테스트 문제를 매주 1개씩 풀이했습니다. 단순 알고리즘 문제가 아니라, **UI 상태 관리, 비동기 처리, 재사용 가능한 컴포넌트 설계** 등 실무에서 자주 마주치는 유형의 문제들입니다.
 
-| 주차                             | 문제          | 핵심 주제                                    |
-| -------------------------------- | ------------- | -------------------------------------------- |
-| [01-TodoList](./01-TodoList)     | Todo List     | 상태 관리, CRUD 로직 설계                    |
-| [02-useQuery](./02-useQuery)     | useQuery 구현 | 비동기 데이터 페칭, 커스텀 훅 설계           |
-| [03-JobBoard](./03-JobBoard)     | Job Board     | 데이터 필터링/렌더링, 컴포넌트 분리          |
-| [04-Tabs](./04-Tabs)             | Tabs          | 접근성을 고려한 UI 컴포넌트 설계             |
-| [05-useArray](./05-useArray)     | useArray 구현 | 배열 상태를 다루는 커스텀 훅 설계            |
-| [06-StarRating](./06-StarRating) | Star Rating   | 사용자 인터랙션 처리, 재사용 가능한 컴포넌트 |
+| 주차                             | 문제          | 문제 링크 | 핵심 주제                                    |
+| -------------------------------- | ------------- | --------- | --------------------------------------------- |
+| [01-TodoList](./01-TodoList)     | Todo List     | [GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/todo-list?language=js&tab=coding) | 상태 관리, CRUD 로직 설계                    |
+| [02-useQuery](./02-useQuery)     | useQuery 구현 | [GreatFrontEnd](https://www.greatfrontend.com/questions/javascript/use-query?language=js&tab=coding) | 비동기 데이터 페칭, 커스텀 훅 설계           |
+| [03-JobBoard](./03-JobBoard)     | Job Board     | [GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/job-board?language=js&tab=coding) | 데이터 필터링/렌더링, 컴포넌트 분리          |
+| [04-Tabs](./04-Tabs)             | Tabs          | [GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/tabs?language=js&tab=coding) | 접근성을 고려한 UI 컴포넌트 설계             |
+| [05-useArray](./05-useArray)     | useArray 구현 | [GreatFrontEnd](https://www.greatfrontend.com/questions/javascript/use-array?language=js&tab=coding) | 배열 상태를 다루는 커스텀 훅 설계            |
+| [06-StarRating](./06-StarRating) | Star Rating   | [GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/star-rating?practice=practice&tab=coding) | 사용자 인터랙션 처리, 재사용 가능한 컴포넌트 |
+| [07-Stopwatch](./07-Stopwatch)   | Stopwatch     | [GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/stopwatch?practice=practice&tab=coding) | 타이머 상태 관리, setInterval 기반 로직 설계 |
+| [08-ImageCarousel](./08-ImageCarousel) | Image Carousel | [GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/image-carousel?practice=practice&tab=coding) | 순환 인덱스 상태 관리, 슬라이드 UI 구현      |
+| [09-UseDebounce](./09-UseDebounce) | useDebounce 구현 | [GreatFrontEnd](https://www.greatfrontend.com/questions/javascript/use-debounce?practice=practice&tab=coding) | 비동기 타이밍 제어, 커스텀 훅 설계         |
+| [10-UseMediaQuery](./10-UseMediaQuery) | useMediaQuery 구현 | [GreatFrontEnd](https://www.greatfrontend.com/questions/javascript/use-media-query?practice=practice&tab=coding) | 브라우저 API 연동, 반응형 상태 감지        |
+| [11-DiceRoller](./11-DiceRoller) / [11-UseMediatedState](./11-UseMediatedState) | Dice Roller / useMediatedState 구현 (택 1) | [Dice Roller](https://www.greatfrontend.com/questions/user-interface/dice-roller?language=js&tab=coding) / [useMediatedState](https://www.greatfrontend.com/questions/javascript/use-mediated-state?language=js&tab=coding) | 랜덤 시뮬레이션 UI 또는 매개자 함수 기반 상태 제어 |
 
 > 각 폴더의 README에서 문제 요구사항을, 폴더 내부에서 스터디원별 구현 코드를 확인할 수 있습니다.
 
